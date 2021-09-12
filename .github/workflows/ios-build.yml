@@ -8,6 +8,8 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
+      with:
+        ref: 87434333d2277e5b256e14e14c34b25ff772f4b6
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10
@@ -30,4 +32,6 @@ jobs:
         dotnet restore ${{github.workspace}}/osu.sln
 
     - name: Build
-      run: dotnet build ${{github.workspace}}/osu.iOS.slnf /p:Configuration=Release /p:Platform=iPhone
+      run: |
+        cd ${{github.workspace}}/osu.iOS
+        dotnet build  /p:Configuration=Release /p:Platform=iPhone
