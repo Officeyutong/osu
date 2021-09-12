@@ -39,4 +39,4 @@ jobs:
 #     - name: Build
 #       run: |
 #         cd ${{github.workspace}}/osu.iOS
-#         dotnet build /p:Configuration=Release /p:Platform=iPhone
+#         dotnet build /p:Configuration=Release /p:Platform=iPhoneSimulator
