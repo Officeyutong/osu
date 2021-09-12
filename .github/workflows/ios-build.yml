@@ -12,7 +12,7 @@ jobs:
         ref: 87434333d2277e5b256e14e14c34b25ff772f4b6
     - name: Set default Xamarin SDK versions
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.20
     
     - name: Set default Xcode 12.5.1
       run: |
@@ -23,10 +23,12 @@ jobs:
     - name: Setup .NET Core SDK 5.0
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.0.400'
+        dotnet-version: '5.0.x'
+        
     - name: Debug
       run: |
         ls /Users/runner/.dotnet/sdk/5.0.400
+        
     - name: Install dependencies
       run: |
         dotnet restore ${{github.workspace}}/osu.sln
@@ -34,4 +36,4 @@ jobs:
     - name: Build
       run: |
         cd ${{github.workspace}}/osu.iOS
-        dotnet build  /p:Configuration=Release /p:Platform=iPhone
+        dotnet build /p:Configuration=Release /p:Platform=iPhone
