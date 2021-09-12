@@ -56,14 +56,17 @@ jobs:
     - name: Debug
       run: |
         ls /Users/runner/.dotnet/sdk/5.0.400
-        
-    - name: Install dependencies
+    - name: run
       run: |
-        nuget restore ${{github.workspace}}/osu.sln || echo 'aaa'
-    - name: debug2
-      run: rm /Users/runner/.nuget/packages/managedbass/3.0.0/lib/Xamarin.iOS/ManagedBass.dll || echo 'aaa'
-    - name: Build
-      run: msbuild ${{github.workspace}}/osu.iOS/osu.iOS.csproj /p:Configuration=Release /p:Platform=iPhoneSimulator /t:Rebuild
+        cd ${{github.workspace}}
+        dotnet run --project osu.iOS
+#     - name: Install dependencies
+#       run: |
+#         nuget restore ${{github.workspace}}/osu.sln || echo 'aaa'
+#     - name: debug2
+#       run: rm /Users/runner/.nuget/packages/managedbass/3.0.0/lib/Xamarin.iOS/ManagedBass.dll || echo 'aaa'
+#     - name: Build
+#       run: msbuild ${{github.workspace}}/osu.iOS/osu.iOS.csproj /p:Configuration=Release /p:Platform=iPhoneSimulator /t:Rebuild
 #     - name: Build
 #       run: |
 #         cd ${{github.workspace}}/osu.iOS
