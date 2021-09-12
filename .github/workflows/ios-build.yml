@@ -24,7 +24,7 @@ jobs:
         dotnet-version: '5.0.400'
     - name: Debug
       run: |
-        tree /Users/runner/.dotnet/sdk/5.0.400/Xamarin/
+        ls /Users/runner/.dotnet/sdk/5.0.400/Xamarin/
     - name: Install dependencies
       run: |
         dotnet restore ${{github.workspace}}/osu.sln
