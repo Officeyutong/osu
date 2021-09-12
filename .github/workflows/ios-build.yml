@@ -20,7 +20,9 @@ jobs:
 
     - name: Setup .NET Core SDK 5.0
       uses: actions/setup-dotnet@v1
-
+    - name: Debug
+      run: |
+        ls /Users/runner/.dotnet/sdk/5.0.400/Xamarin/iOS
     - name: Install dependencies
       run: |
         dotnet restore ${{github.workspace}}/osu.sln
