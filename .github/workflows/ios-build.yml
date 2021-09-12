@@ -23,10 +23,10 @@ jobs:
       with:
         dotnet-version: '5.0'
 
-    - name: Install dependencies
-      run: |
-        cd ${{github.workspace}}
-        dotnet restore
+#     - name: Install dependencies
+#       run: |
+#         cd ${{github.workspace}}
+#         dotnet restore
 
     - name: Build
-      run: dotnet build ${{github.workspace}}/osu.iOS.slnf /p:Configuration=Release /p:Platform=iPhone /t:Rebuild
+      run: dotnet build ${{github.workspace}}/osu.iOS.slnf /p:Configuration=Release /p:Platform=iPhone
