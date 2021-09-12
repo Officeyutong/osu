@@ -12,7 +12,7 @@ jobs:
         ref: 87434333d2277e5b256e14e14c34b25ff772f4b6
     - name: Set default Xamarin SDK versions
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.20
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.20 --android=10.2
     
     - name: Set default Xcode 12.5.1
       run: |
@@ -31,7 +31,7 @@ jobs:
         
     - name: Install dependencies
       run: |
-        nuget restore ${{github.workspace}}/osu.iOS.slnf
+        nuget restore ${{github.workspace}}/osu.sln
 
     - name: Build
       run: |
