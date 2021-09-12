@@ -24,7 +24,7 @@ jobs:
         dotnet-version: '5.0.400'
     - name: Debug
       run: |
-        ls /Users/runner/.dotnet/sdk/
+        ls /Users/runner/.dotnet/sdk/5.0.400
     - name: Install dependencies
       run: |
         dotnet restore ${{github.workspace}}/osu.sln
